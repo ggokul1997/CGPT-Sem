@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semantic Subtitle Translator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="sst-popup">
+  <main id="popup-root" class="sst-popup__container" aria-describedby="popup-help">
+    <h1 class="sst-popup__title">Semantic Subtitle Translator</h1>
+
+    <form class="sst-popup__form" aria-label="Translator settings" autocomplete="off">
+      <!-- On/Off toggle -->
+      <div class="sst-field">
+        <label for="toggleEnabled" class="sst-label">Enable translator</label>
+        <input type="checkbox" id="toggleEnabled" name="enabled" class="sst-switch" aria-describedby="enabledHelp" />
+        <div id="enabledHelp" class="sst-help">Controls whether the overlay is active on YouTube.</div>
+      </div>
+
+      <!-- Language selector -->
+      <div class="sst-field">
+        <label for="selectLanguage" class="sst-label">Target language</label>
+        <select id="selectLanguage" name="language" class="sst-select">
+          <option value="en">English</option>
+          <option value="ml">Malayalam</option>
+        </select>
+      </div>
+
+      <!-- Contextual hint -->
+      <div class="sst-field">
+        <label for="textHint" class="sst-label">Contextual Hint (optional)</label>
+        <textarea id="textHint" name="hint" class="sst-textarea" rows="4" placeholder="e.g., Tone: casual Malayalam vlog for young entrepreneurs."></textarea>
+        <div class="sst-help" id="popup-help">Hints guide tone/localization. Settings save automatically.</div>
+      </div>
+
+      <!-- Actions -->
+      <div class="sst-actions">
+        <button id="btnStartStop" type="button" class="sst-btn sst-btn--primary" aria-label="Start translating">Start</button>
+      </div>
+
+      <!-- Status -->
+      <div class="sst-statusrow">
+        <span id="statusPill" class="sst-pill sst-pill--idle" role="status" aria-live="polite" aria-atomic="true">Idle</span>
+      </div>
+    </form>
+
+    <!-- Toasts (live region) -->
+    <div id="toast" class="sst-toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

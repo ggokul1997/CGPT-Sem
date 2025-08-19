@@ -1,0 +1,176 @@
+/* jdnjw *//* ========= Popup styles (scoped under .sst-popup) ========= */
+:root {
+  --sst-bg: #0f1115;
+  --sst-surface: #151821;
+  --sst-border: #2a2f3a;
+  --sst-text: #e6e9ef;
+  --sst-muted: #a7adbb;
+  --sst-primary: #3b82f6;       /* AA on dark */
+  --sst-primary-contrast: #ffffff;
+  --sst-success: #16a34a;
+  --sst-error: #ef4444;
+  --sst-warning: #f59e0b;
+  --sst-focus: #93c5fd;
+  --sst-gap: 12px;
+  --sst-radius: 10px;
+}
+
+.sst-popup {
+  color: var(--sst-text);
+  background: var(--sst-bg);
+  min-width: 320px;
+  max-width: 340px;
+  margin: 0;
+  font: 14px/1.35 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.sst-popup__container {
+  padding: 14px;
+}
+
+.sst-popup__title {
+  font-size: 14px;
+  margin: 0 0 8px 0;
+  color: var(--sst-muted);
+  font-weight: 600;
+}
+
+.sst-popup__form {
+  display: grid;
+  gap: var(--sst-gap);
+}
+
+.sst-field {
+  display: grid;
+  gap: 6px;
+}
+
+.sst-label {
+  font-weight: 600;
+}
+
+.sst-help {
+  color: var(--sst-muted);
+  font-size: 12px;
+}
+
+.sst-select,
+.sst-textarea,
+.sst-switch {
+  background: var(--sst-surface);
+  color: var(--sst-text);
+  border: 1px solid var(--sst-border);
+  border-radius: var(--sst-radius);
+}
+
+.sst-select,
+.sst-textarea {
+  padding: 8px;
+  width: 100%;
+}
+
+.sst-textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.sst-switch {
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+}
+.sst-switch::before {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 20px; height: 20px;
+  background: #888;
+  border-radius: 999px;
+  transition: transform .18s ease, background .18s ease;
+}
+.sst-switch:checked {
+  background: rgba(59,130,246,0.3);
+  border-color: var(--sst-primary);
+}
+.sst-switch:checked::before {
+  transform: translateX(20px);
+  background: var(--sst-primary);
+}
+
+.sst-actions { margin-top: 2px; }
+.sst-btn {
+  width: 100%;
+  border: 1px solid var(--sst-border);
+  border-radius: var(--sst-radius);
+  padding: 8px 10px;
+  background: var(--sst-surface);
+  color: var(--sst-text);
+  font-weight: 600;
+  cursor: pointer;
+}
+.sst-btn:hover { filter: brightness(1.05); }
+.sst-btn:focus-visible {
+  outline: 2px solid var(--sst-focus);
+  outline-offset: 2px;
+}
+.sst-btn--primary {
+  background: var(--sst-primary);
+  border-color: var(--sst-primary);
+  color: var(--sst-primary-contrast);
+}
+
+.sst-statusrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sst-pill {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--sst-border);
+  background: var(--sst-surface);
+  user-select: none;
+}
+.sst-pill--idle { color: var(--sst-muted); }
+.sst-pill--active {
+  color: #eaffe8;
+  background: rgba(22,163,74,0.25);
+  border-color: rgba(22,163,74,0.5);
+}
+.sst-pill--error {
+  color: #ffecec;
+  background: rgba(239,68,68,0.25);
+  border-color: rgba(239,68,68,0.5);
+}
+
+/* Toast */
+.sst-toast {
+  margin-top: 6px;
+  padding: 8px;
+  border-radius: var(--sst-radius);
+  border: 1px solid var(--sst-border);
+  background: var(--sst-surface);
+  font-size: 12px;
+}
+.sst-toast--error {
+  border-color: rgba(239,68,68,0.5);
+  background: rgba(239,68,68,0.15);
+}
+.sst-toast--success {
+  border-color: rgba(22,163,74,0.5);
+  background: rgba(22,163,74,0.15);
+}
+
+/* Inputs focus */
+.sst-select:focus-visible,
+.sst-textarea:focus-visible,
+.sst-switch:focus-visible {
+  outline: 2px solid var(--sst-focus);
+  outline-offset: 2px;
+}
+
+/* Keep popup styles from polluting content pages: everything is under .sst-popup */
